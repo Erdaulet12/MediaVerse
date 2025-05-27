@@ -1,4 +1,7 @@
+import News from "./components/News";
 import "./assets/css/App.css";
+import Avatar from "./assets/images/Avatar.svg";
+import Bookmark from "./assets/images/Bookmark.svg";
 
 const App = () => {
   return (
@@ -13,10 +16,13 @@ const App = () => {
               <li className="nav__item">Categories</li>
             </ul>
           </nav>
+          <div className="nav-right">
+            <img src={Bookmark} alt="Закладки" className="bookmark" />
+            <img src={Avatar} alt="Аватар" className="avatar" />
+          </div>
         </header>
 
         <main className="app__main">
-          {/* Banner Rectangle under header, now scrolling with content */}
           <div className="banner-rect" />
 
           <section className="grid-section">
@@ -37,34 +43,17 @@ const App = () => {
             </div>
           </section>
 
-          <section className="news">
-            <div className="news__header">
-              <h2 className="section__title">Mediaverse News</h2>
-              <button className="news__view-all">View All</button>
-            </div>
-
-            <div className="news__content">
-              <div className="card news__large" />
-              <div className="card news__small" />
-              <div className="card news__large" />
-              <div className="card news__small" />
-            </div>
-          </section>
-
-          <section className="callout">
-            <p className="callout__text">Looking for something particular?</p>
-            <button className="callout__button">View All</button>
-          </section>
+          <News />
         </main>
 
         {/* <footer className="app__footer">
-          <div className="footer__links">
-            <a href="#">Mediaverse</a>
-            <a href="#">New Releases</a>
-            <a href="#">Popular</a>
-            <a href="#">Categories</a>
-          </div>
-        </footer> */}
+      <div className="footer__links">
+        <a href="#">Mediaverse</a>
+        <a href="#">New Releases</a>
+        <a href="#">Popular</a>
+        <a href="#">Categories</a>
+      </div>
+    </footer> */}
       </div>
     </div>
   );

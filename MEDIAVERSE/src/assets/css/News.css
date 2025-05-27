@@ -1,0 +1,103 @@
+/* News.css */
+.news {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: #202020;
+    color: #fff;
+}
+
+.news__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.news__header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.news__icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.news__view-all {
+    background: transparent;
+    border: none;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.news__content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1rem;
+}
+
+/* Левый столбец: главные новости */
+.news__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.news__card--featured {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Превью для главных новостей */
+.news__thumb {
+    background: #d9d9d9;
+    border-radius: 4px;
+    width: 30%;
+    object-fit: cover;
+}
+
+.news__thumb--large {
+    height: 200px;
+}
+
+/* Правая колонка: последние новости */
+.news__right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.news__card--small {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* Можно ограничить максимальную ширину при необходимости */
+    /* max-width: 180px; */
+}
+
+.news__thumb--small {
+    height: 100px;
+}
+
+/* Заголовки карточек */
+.news__card-title {
+    margin: 0;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Адаптив: одна колонка на узких экранах */
+@media (max-width: 768px) {
+    .news__content {
+        grid-template-columns: 1fr;
+    }
+
+    .news__right {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
