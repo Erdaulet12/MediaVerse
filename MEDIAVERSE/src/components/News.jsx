@@ -1,45 +1,66 @@
 import "../assets/css/News.css";
 
-const mainNews = [
-  { title: "Главная новость #1" },
-  { title: "Главная новость #2" },
-];
-const recentNews = [
-  { title: "Свежая новость 1" },
-  { title: "Свежая новость 2" },
-  { title: "Свежая новость 3" },
-  { title: "Свежая новость 4" },
-];
-
-const News = () => (
-  <section className="news">
-    <div className="news__header">
-      <h2 className="section__title">Mediaverse News</h2>
-      <button className="news__view-all">View All →</button>
-    </div>
-
-    <div className="news__content">
-      {/* Первый контейнер главных новостей */}
-      <div className="news__left">
-        {mainNews.map((item, i) => (
-          <article key={i} className="news__card news__card--featured">
-            <div className="news__thumb news__thumb--large" />
-            <h3 className="news__card-title">{item.title}</h3>
-          </article>
-        ))}
+export default function MediaVerseNews() {
+  return (
+    <div className="news-container">
+      {/* Header */}
+      <div className="news-header">
+        <h1 className="news-title">Mediaverse News</h1>
+        <a href="#" className="news-view-all">
+          View All
+        </a>
       </div>
 
-      {/* Правая колонка «последние новости» */}
-      <div className="news__right">
-        {recentNews.map((item, i) => (
-          <article key={i} className="news__card news__card--small">
-            <div className="news__thumb news__thumb--small" />
-            <h4 className="news__card-title">{item.title}</h4>
-          </article>
-        ))}
+      {/* Main Content */}
+      <div className="news-content">
+        {/* Left Column - Featured News with Descriptions */}
+        <div className="news-featured">
+          <div className="featured-news-item">
+            <div className="featured-item" />
+            <p className="description">
+              «Громовержцы» — новый супергеройский фильм от Marvel Studios,
+              привлекающий внимание зрителей.
+            </p>
+          </div>
+          <div className="featured-news-item">
+            <div className="featured-item" />
+            <p className="description">
+              «Лило и Стич» — игровая адаптация классического мультфильма
+              Disney, успешно стартовавшая в прокате.
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column - Latest News with Descriptions */}
+        <div className="news-latest">
+          <div className="latest-news-item">
+            <div className="latest-item" />
+            <p className="description">
+              «Громовержцы» — Елена Белова, Баки Барнс и другие антигерои
+              объединяются в нестабильную команду, чтобы спасти мир. Фильм
+              сочетает зрелищные спецэффекты и внутренние конфликты персонажей.
+            </p>
+          </div>
+          <div className="latest-news-item">
+            <div className="latest-item" />
+            <p className="description">
+              «Поднятие уровня в одиночку 2» — Продолжение одного из самых
+              популярных аниме последних лет. Главный герой получает второй шанс
+              и становится сильнейшим охотником. Новый сезон обещает больше
+              раскрытия персонажей и зрелищных боёв.
+            </p>
+          </div>
+          <div className="latest-news-item">
+            <div className="latest-item" />
+            <p className="description">
+              «Дастер» — Агент ФБР в 1970-х внедряется в преступный синдикат,
+              используя водителя как информатора. Сериал от Джей-Джей Абрамса и
+              сценаристки «Бесстыдников». Много экшена и харизматичных
+              персонажей
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-);
-
-export default News;
+  );
+}
