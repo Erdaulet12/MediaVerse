@@ -1,0 +1,41 @@
+.app__header {
+    background: #202020;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    justify-content: center;
+}
+
+.nav-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.bookmark {
+    width: 42px;
+    height: 42px;
+}
+
+.nav__item {
+    font-size: 1.125rem;
+    cursor: pointer;
+}

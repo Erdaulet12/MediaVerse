@@ -1,0 +1,48 @@
+.popular-container {
+  width: 100%;
+  padding: 2rem 1rem;
+  background: linear-gradient(to bottom, #0023C1, #000000);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+}
+
+.popular-header {
+  margin-bottom: 2rem;
+}
+
+.popular-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.popular-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.popular-card {
+  background-color: #d9d9d9;
+  border-radius: 0.5rem;
+  aspect-ratio: 2 / 3;
+  width: 160px;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+.popular-footer {
+  padding: 1rem;
+  background: #001dff;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.popular-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}

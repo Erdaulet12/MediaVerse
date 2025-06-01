@@ -1,161 +1,23 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body,
 #root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  /* background-color: #202020; */
-  background: linear-gradient(to bottom, #0023C1, #000000);
-  color: #fff;
-  line-height: 1.4;
-  overflow-y: auto;
-  overflow-x: hidden;
-  align-items: flex-start;
-}
-
-
-.banner-rect {
-  width: 100%;
-  height: 100px;
-  background-color: rgba(217, 217, 217, 1);
-  margin-bottom: 2rem;
-}
-
-.scalableContainer {
-  width: 100%;
-  min-height: 100%;
-  margin: 0 auto;
-}
-
-.app {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-
-}
-
-.app__header {
-  background: #202020;
-  padding: 1rem;
-  position: fixed;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav__list {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  justify-content: center;
-}
-
-.nav-right {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-}
-
-.bookmark {
-  width: 42px;
-  height: 42px;
-}
-
-.nav__item {
-  font-size: 1.125rem;
-  cursor: pointer;
-}
-
-.app__main {
-  flex: 1;
-  padding: 2rem 1rem;
-  overflow-y: auto;
-}
-
-.section__title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.card {
-  background-color: #d9d9d9;
-  border-radius: 0.5rem;
-  aspect-ratio: 2 / 3;
-  width: 200px;
-  max-width: 100%;
-}
-
-.grid--6 {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-}
-
-.grid--6 .card {
-  flex: 0 0 160px;
-  /* height: 160px; */
-}
-
-.grid--3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.callout {
-  text-align: center;
-}
-
-.callout__text {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.callout__button {
-  background: transparent;
-  border: none;
-  color: #fff;
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.app__footer {
-  padding: 1rem;
-  background: #001dff;
-}
-
-.footer__links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.footer__links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #0023C1, #000000);
+    color: #fff;
+    line-height: 1.4;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
 }

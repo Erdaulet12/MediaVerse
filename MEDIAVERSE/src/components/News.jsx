@@ -3,7 +3,6 @@ import "../assets/css/News.css";
 export default function MediaVerseNews() {
   return (
     <div className="news-container">
-      {/* Header */}
       <div className="news-header">
         <h1 className="news-title">Mediaverse News</h1>
         <a href="#" className="news-view-all">
@@ -11,9 +10,7 @@ export default function MediaVerseNews() {
         </a>
       </div>
 
-      {/* Main Content */}
       <div className="news-content">
-        {/* Left Column - Featured News with Descriptions */}
         <div className="news-featured">
           <div className="featured-news-item">
             <div className="featured-item" />
@@ -31,7 +28,6 @@ export default function MediaVerseNews() {
           </div>
         </div>
 
-        {/* Right Column - Latest News with Descriptions */}
         <div className="news-latest">
           <div className="latest-news-item">
             <div className="latest-item" />
