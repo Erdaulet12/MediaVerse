@@ -1,48 +1,81 @@
 .popular-container {
-  width: 100%;
-  padding: 2rem 1rem;
   background: linear-gradient(to bottom, #0023C1, #000000);
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-}
-
-.popular-header {
-  margin-bottom: 2rem;
-}
-
-.popular-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+  box-shadow: 0 8px 64px rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  margin-top: 4rem;
 }
 
 .popular-grid {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.popular-section-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popular-title {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.filters-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.filters-with-icon .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.filters-with-icon span {
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.filters-with-icon img:nth-of-type(1) {
+  margin-right: 0.5rem;
+}
+
+.filters-with-icon span:nth-of-type(1) {
+  margin-right: 2rem;
+}
+
+.filters-with-icon img:nth-of-type(2) {
+  margin-right: 0.5rem;
+}
+
+.popular-subtitle {
+  font-size: 1.75rem;
+  color: #fff;
+  margin: 0;
+}
+
+.cards-wrapper {
+  display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
+  width: 100%;
   overflow-x: auto;
   padding-bottom: 1rem;
 }
 
 .popular-card {
   background-color: #d9d9d9;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   aspect-ratio: 2 / 3;
   width: 160px;
   flex: 0 0 auto;
   max-width: 100%;
-}
-
-.popular-footer {
-  padding: 1rem;
-  background: #001dff;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.popular-footer a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1rem;
 }
