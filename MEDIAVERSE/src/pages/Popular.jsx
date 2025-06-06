@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import "../assets/css/Popular.css";
 import "../assets/css/App.css";
 import MenuIcon from "../assets/images/menu.svg";
@@ -10,7 +9,6 @@ const Popular = () => {
   return (
     <div className="scalableContainer">
       <div className="app">
-        <Header />
         <main className="app__main">
           <div className="popular-container">
             <div className="popular-grid">

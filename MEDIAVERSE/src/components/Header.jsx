@@ -11,7 +11,7 @@ const Header = () => (
           <Link to="/">Mediaverse</Link>
         </li>
         <li className="nav__item">
-          <Link to="#">New Releases</Link>
+          <Link to="/new-Releases">New Releases</Link>
         </li>
         <li className="nav__item">
           <Link to="/popular">Popular</Link>

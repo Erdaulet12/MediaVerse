@@ -1,0 +1,156 @@
+.releases-container {
+    background: linear-gradient(to bottom, #0023c1, #000000);
+    padding: 2rem 1rem;
+    box-shadow: 0 8px 64px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    margin-top: 4rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.new-releases {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.releases-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.releases-title {
+    font-size: 2rem;
+    color: #fff;
+    font-family: Inter, sans-serif;
+    margin: 0;
+}
+
+.filters-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.filters-with-icon .icon-list {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+.filters-with-icon .filters-label {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-right: 2rem;
+}
+
+.releases-subtitle {
+    font-size: 1.75rem;
+    color: #fff;
+    font-family: Inter, sans-serif;
+    margin: 0 0 1rem 0;
+}
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.releases-card {
+    background-color: #d9d9d9;
+    border-radius: 1rem;
+    aspect-ratio: 2 / 3;
+    width: 160px;
+    flex: 0 0 auto;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.releases-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.2;
+}
+
+.releases-card-title {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .releases-title {
+        font-size: 1.75rem;
+    }
+
+    .releases-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .releases-card {
+        width: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .releases-title {
+        font-size: 1.5rem;
+    }
+
+    .releases-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .releases-card {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .releases-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .releases-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .releases-title {
+        font-size: 1.25rem;
+    }
+
+    .filters-with-icon {
+        margin-top: 0.5rem;
+    }
+
+    .releases-subtitle {
+        font-size: 1rem;
+    }
+
+    .releases-card {
+        width: 100px;
+    }
+}
