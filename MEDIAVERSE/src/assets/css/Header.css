@@ -39,4 +39,5 @@
 .nav__item {
     font-size: 1.125rem;
     cursor: pointer;
+    color: white;
 }

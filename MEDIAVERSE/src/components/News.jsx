@@ -1,11 +1,11 @@
 import "../assets/css/News.css";
 
-export default function MediaVerseNews() {
+const MediaVerseNews = () => {
   return (
     <div className="news-container">
       <div className="news-header">
         <h1 className="news-title">Mediaverse News</h1>
-        <a href="#" className="news-view-all">
+        <a href="/All-News" className="news-view-all">
           View All
         </a>
       </div>
@@ -59,4 +59,6 @@ export default function MediaVerseNews() {
       </div>
     </div>
   );
-}
+};
+
+export default MediaVerseNews;
