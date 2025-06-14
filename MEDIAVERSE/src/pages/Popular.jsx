@@ -3,7 +3,7 @@ import "../assets/css/App.css";
 import MenuIcon from "../assets/images/menu.svg";
 import FilterIcon from "../assets/images/filter.svg";
 
-const popularItems = Array.from({ length: 40 }, (_, i) => ({ id: i + 1 }));
+const popularItems = Array.from({ length: 36 }, (_, i) => ({ id: i + 1 }));
 
 const Popular = () => {
   return (
