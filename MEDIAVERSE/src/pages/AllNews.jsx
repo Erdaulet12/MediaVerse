@@ -1,3 +1,5 @@
+// TODO: Сменить API на Jikan
+
 import { useState, useEffect } from "react";
 import NewsCard from "../components/NewsCard";
 
