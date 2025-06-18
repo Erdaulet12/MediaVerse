@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Popular from "./pages/Popular";
 import Releases from "./pages/Releases";
 import AllNews from "./pages/AllNews";
+import BrowseAll from "./pages/BrowseAll";
 import "./assets/css/App.css";
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/new-releases" element={<Releases />} />
             <Route path="/popular" element={<Popular />} />
-            {/* <Route path="/categories" element={<Categories />} /> */}
+            <Route path="/categories" element={<BrowseAll />} />
             <Route path="/all-news" element={<AllNews />} />
           </Routes>
         </div>

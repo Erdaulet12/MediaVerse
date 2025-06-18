@@ -25,6 +25,13 @@ const Home = () => {
       </section>
 
       <News />
+
+      <div className="home__text">
+        <p>Looking for something particular?</p>
+        <a href="/categories" className="home__link">
+          View All
+        </a>
+      </div>
     </main>
   );
 };
