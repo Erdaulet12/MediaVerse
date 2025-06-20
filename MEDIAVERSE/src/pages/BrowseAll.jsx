@@ -1,150 +1,65 @@
-import React, { useEffect, useState } from "react";
-import "../assets/css/BrowseAll.css";
-import MenuIcon from "../assets/images/menu.svg";
-import FilterIcon from "../assets/images/filter.svg";
+// File: src/pages/AnimeNews.jsx
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import NewsCard from "../components/NewsCard";
 
-export default function BrowseAll() {
-  const [fullAnimeList, setFullAnimeList] = useState([]);
-  const [animeList, setAnimeList] = useState([]);
+export default function AnimeNews() {
+  const { id } = useParams(); // grab the anime ID from the URL
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedLetter, setSelectedLetter] = useState(null);
-  const [showFilters, setShowFilters] = useState(false);
-  const [genreFilters, setGenreFilters] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAnime = async () => {
-      try {
-        const res = await fetch(
-          "https://api.jikan.moe/v4/anime?order_by=popularity&sort=desc&limit=20"
-        );
-        const json = await res.json();
-        setFullAnimeList(json.data);
-        setAnimeList(json.data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAnime();
-  }, []);
+    if (!id) return;
 
-  const alphabet = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    setLoading(true);
+    setError(null);
 
-  const filteredByLetter = selectedLetter
-    ? fullAnimeList.filter((a) => {
-        const first = a.title[0].toUpperCase();
-        return selectedLetter === "#"
-          ? /\d/.test(first)
-          : first === selectedLetter;
+    const url = `https://api.jikan.moe/v4/anime/${id}/news`;
+
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Jikan API responded ${res.status}`);
+        }
+        return res.json();
       })
-    : fullAnimeList;
+      .then((json) => {
+        setItems(json.data || []);
+      })
+      .catch((err) => {
+        console.error("Error fetching anime news:", err);
+        setError("Failed to load news. Please try again later.");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [id]);
 
-  const displayed = genreFilters.length
-    ? filteredByLetter.filter((a) =>
-        a.genres.some((g) => genreFilters.includes(g.name))
-      )
-    : filteredByLetter;
-
-  const allGenres = Array.from(
-    new Set(fullAnimeList.flatMap((a) => a.genres.map((g) => g.name)))
-  );
-
-  const toggleGenre = (genre) => {
-    setGenreFilters((prev) =>
-      prev.includes(genre) ? prev.filter((g) => g !== genre) : [...prev, genre]
-    );
-  };
+  if (loading) return <p>Loading news…</p>;
+  if (error) return <p>{error}</p>;
+  if (items.length === 0) return <p>No news available for this anime.</p>;
 
   return (
-    <div className="browse-container">
-      <div className="browse-header">
-        <h1 className="browse-title">All Catalog</h1>
-        <div className="browse-actions">
-          <img
-            src={MenuIcon}
-            alt="Sort"
-            className="action-icon"
-            onClick={() => setSelectedLetter(null)}
-          />
-          <span className="action-label">Alphabetical</span>
-          <img
-            src={FilterIcon}
-            alt="Filter"
-            className="action-icon"
-            onClick={() => setShowFilters((v) => !v)}
-          />
-          <span className="action-label">Filter</span>
-        </div>
-        {showFilters && (
-          <div className="filter-panel">
-            <h4>Filter by Genre</h4>
-            {allGenres.map((g) => (
-              <label key={g}>
-                <input
-                  type="checkbox"
-                  checked={genreFilters.includes(g)}
-                  onChange={() => toggleGenre(g)}
-                />
-                {g}
-              </label>
-            ))}
-            <button onClick={() => setShowFilters(false)}>Apply</button>{" "}
-          </div>
-        )}
-      </div>
-      <div className="alphabet-bar">
-        {alphabet.map((letter) => (
-          <span
-            key={letter}
-            className={`alphabet-letter ${
-              selectedLetter === letter ? "active" : ""
-            }`}
-            onClick={() => setSelectedLetter(letter)}
-          >
-            {letter}
-          </span>
-        ))}
-        {selectedLetter && (
-          <button
-            className="clear-letter"
-            onClick={() => setSelectedLetter(null)}
-          >
-            Clear
-          </button>
-        )}
-      </div>
-      <div className="section-separator">#</div>
-      <div className="anime-list">
-        {loading ? (
-          <p className="loading">Loading...</p>
-        ) : (
-          displayed.map((anime) => (
-            <div key={anime.mal_id} className="anime-card">
-              <img
-                src={anime.images.jpg.image_url}
-                alt={anime.title}
-                className="anime-image"
-              />
-              <div className="anime-info">
-                <h3 className="anime-title">{anime.title}</h3>
-                {anime.genres && anime.genres.length > 0 && (
-                  <p className="anime-genres">
-                    {anime.genres.map((g) => g.name).join(", ")}
-                  </p>
-                )}
-                <p className="anime-description">
-                  {anime.synopsis
-                    ? anime.synopsis.slice(0, 150) +
-                      (anime.synopsis.length > 150 ? "..." : "")
-                    : "No description available."}
-                </p>
-                <small className="anime-sub">Subbed</small>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
+    <div style={{ padding: "4rem 2rem 2rem" }}>
+      <h1
+        style={{
+          color: "#e0e0e0",
+          marginBottom: "1.5rem",
+          marginTop: "2rem",
+        }}
+      >
+        News for Anime #{id}
+      </h1>
+      {items.map((newsItem, idx) => (
+        <NewsCard
+          key={idx}
+          title={newsItem.title}
+          url={newsItem.url}
+          summary={newsItem.excerpt}
+          date={newsItem.date}
+        />
+      ))}
     </div>
   );
 }

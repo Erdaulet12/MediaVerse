@@ -10,6 +10,16 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api\//, "/"),
       },
+      "/api/jikan": {
+        target: "https://api.jikan.moe",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/jikan/, ""),
+      },
+      "/api": {
+        target: "https://api.jikan.moe",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
   },
 });
