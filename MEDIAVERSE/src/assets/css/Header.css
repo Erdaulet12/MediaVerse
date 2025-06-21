@@ -1,43 +1,72 @@
 .app__header {
     background: #202020;
-    padding: 1rem;
+    padding: 1rem 2rem;
     position: fixed;
     width: 100%;
-    justify-content: center;
-    align-items: center;
+    top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav__brand {
+    display: flex;
+    align-items: center;
+}
+
+.brand__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.brand__text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    font-family: "Inter", sans-serif;
 }
 
 .nav__list {
     display: flex;
     gap: 2rem;
     list-style: none;
-    justify-content: center;
+    margin-left: 2rem;
+    padding: 0;
+}
+
+.nav__item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.nav__item a:hover {
+    color: #00adee;
 }
 
 .nav-right {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
+    gap: 1rem;
     align-items: center;
-    gap: 16px;
 }
 
-.avatar {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-}
-
+.avatar,
 .bookmark {
-    width: 42px;
-    height: 42px;
-}
-
-.nav__item {
-    font-size: 1.125rem;
-    cursor: pointer;
-    color: white;
+    height: 32px;
+    width: 32px;
 }

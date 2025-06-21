@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import Avatar from "../assets/images/Avatar.svg";
 import Bookmark from "../assets/images/Bookmark.svg";
+import Logo from "../assets/images/Logo.svg";
 import "../assets/css/Header.css";
 
 const Header = () => (
   <header className="app__header">
     <nav className="nav">
+      <div className="nav__brand">
+        <Link to="/" className="brand__link">
+          <img src={Logo} alt="MediaVerse Logo" className="logo-img" />
+          <span className="brand__text">MediaVerse</span>
+        </Link>
+      </div>
+
       <ul className="nav__list">
-        <li className="nav__item">
-          <Link to="/">MediaVerse</Link>
-        </li>
         <li className="nav__item">
           <Link to="/new-Releases">New Releases</Link>
         </li>
@@ -21,6 +26,7 @@ const Header = () => (
         </li>
       </ul>
     </nav>
+
     <div className="nav-right">
       <img src={Bookmark} alt="Закладки" className="bookmark" />
       <img src={Avatar} alt="Аватар" className="avatar" />

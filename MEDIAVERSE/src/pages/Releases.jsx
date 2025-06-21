@@ -104,7 +104,7 @@ const Releases = () => {
           </div>
         </div>
 
-        <h3 className="releases-subtitle">All Summer 2025 Releases</h3>
+        <h5 className="releases-subtitle">All Summer 2025 Releases</h5>
         {renderCards(releases, 18)}
       </section>
     </div>

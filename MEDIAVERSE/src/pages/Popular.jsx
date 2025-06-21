@@ -1,11 +1,22 @@
+import { useEffect, useState } from "react";
 import "../assets/css/Popular.css";
-import "../assets/css/App.css";
 import MenuIcon from "../assets/images/menu.svg";
 import FilterIcon from "../assets/images/filter.svg";
 
-const popularItems = Array.from({ length: 36 }, (_, i) => ({ id: i + 1 }));
-
 const Popular = () => {
+  const [popularAnime, setPopularAnime] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://api.jikan.moe/v4/top/anime?limit=24")
+      .then((res) => res.json())
+      .then((data) => {
+        setPopularAnime(data.data || []);
+      })
+      .catch(console.error)
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <div className="scalableContainer">
       <div className="app">
@@ -22,11 +33,29 @@ const Popular = () => {
                 </div>
               </div>
               <h3 className="popular-subtitle">Most Popular</h3>
-              <div className="cards-wrapper">
-                {popularItems.map((item) => (
-                  <div key={item.id} className="popular-card" />
-                ))}
-              </div>
+
+              {loading ? (
+                <p style={{ color: "#fff" }}>Loading popular anime...</p>
+              ) : (
+                <div className="cards-wrapper">
+                  {popularAnime.map((anime) => (
+                    <div key={anime.mal_id} className="popular-card">
+                      <img
+                        src={anime.images.jpg.image_url}
+                        alt={anime.title}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                      <div className="popular-card-content">
+                        <p className="popular-card-title">{anime.title}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </main>
