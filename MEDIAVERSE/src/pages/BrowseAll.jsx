@@ -1,10 +1,9 @@
-// File: src/pages/AnimeNews.jsx
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NewsCard from "../components/NewsCard";
 
 export default function AnimeNews() {
-  const { id } = useParams(); // grab the anime ID from the URL
+  const { id } = useParams();
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

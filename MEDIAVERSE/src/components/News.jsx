@@ -1,64 +1,56 @@
-import "../assets/css/News.css";
+import { useEffect, useState } from "react";
+import NewsCard from "../components/NewsCard"; // путь корректный
+import "../assets/css/News.css"; // подключаем стиль
 
-const MediaVerseNews = () => {
+export default function News() {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const BASE = import.meta.env.VITE_API_PROXY || "http://localhost:5000/api";
+
+    const fetchNews = async () => {
+      try {
+        const res = await fetch(`${BASE}/rss?feed=anime`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const list = Array.isArray(data) ? data : [data];
+        setNews(list.slice(0, 4));
+      } catch (err) {
+        console.error("RSS Fetch error:", err);
+        setError("Unable to fetch news. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
+  if (loading) return null;
+
   return (
-    <div className="news-container">
+    <section className="news-section">
       <div className="news-header">
-        <h1 className="news-title">Mediaverse News</h1>
+        <h2 className="news-title">Latest Anime News</h2>
         <a href="/All-News" className="news-view-all">
           View All
         </a>
       </div>
+      {error && <div className="news-error">{error}</div>}
 
-      <div className="news-content">
-        <div className="news-featured">
-          <div className="featured-news-item">
-            <div className="featured-item" />
-            <p className="description">
-              «Громовержцы» — новый супергеройский фильм от Marvel Studios,
-              привлекающий внимание зрителей.
-            </p>
-          </div>
-          <div className="featured-news-item">
-            <div className="featured-item" />
-            <p className="description">
-              «Лило и Стич» — игровая адаптация классического мультфильма
-              Disney, успешно стартовавшая в прокате.
-            </p>
-          </div>
-        </div>
-
-        <div className="news-latest">
-          <div className="latest-news-item">
-            <div className="latest-item" />
-            <p className="description">
-              «Громовержцы» — Елена Белова, Баки Барнс и другие антигерои
-              объединяются в нестабильную команду, чтобы спасти мир. Фильм
-              сочетает зрелищные спецэффекты и внутренние конфликты персонажей.
-            </p>
-          </div>
-          <div className="latest-news-item">
-            <div className="latest-item" />
-            <p className="description">
-              «Поднятие уровня в одиночку 2» — Продолжение одного из самых
-              популярных аниме последних лет. Главный герой получает второй шанс
-              и становится сильнейшим охотником. Новый сезон обещает больше
-              раскрытия персонажей и зрелищных боёв.
-            </p>
-          </div>
-          <div className="latest-news-item">
-            <div className="latest-item" />
-            <p className="description">
-              «Дастер» — Агент ФБР в 1970-х внедряется в преступный синдикат,
-              используя водителя как информатора. Сериал от Джей-Джей Абрамса и
-              сценаристки «Бесстыдников». Много экшена и харизматичных
-              персонажей
-            </p>
-          </div>
-        </div>
+      <div className="news-grid">
+        {news.map((item, i) => (
+          <NewsCard
+            key={i}
+            title={item.title}
+            url={item.link}
+            summary={item.description}
+            date={item.pubDate}
+          />
+        ))}
       </div>
-    </div>
+    </section>
   );
-};
-
-export default MediaVerseNews;
+}

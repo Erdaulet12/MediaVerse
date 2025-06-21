@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import News from "../components/News";
+import HorizontalCarousel from "../components/Horizontal";
 import "../assets/css/Home.css";
 
 const Home = () => {
@@ -26,11 +27,11 @@ const Home = () => {
       setLoading(true);
       setError(null);
       try {
-        const seasonJson = await fetchWithRetry("/v4/seasons/now?limit=10");
+        const seasonJson = await fetchWithRetry("/v4/seasons/now?limit=20");
         setTopPicks(seasonJson.data || []);
 
         const popularJson = await fetchWithRetry(
-          "/v4/top/anime?filter=bypopularity&limit=10"
+          "/v4/top/anime?filter=bypopularity&limit=20"
         );
         setMostPopular(popularJson.data || []);
       } catch (err) {
@@ -51,34 +52,12 @@ const Home = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
-  const renderCard = (item) => (
-    <div className="card" key={item.mal_id}>
-      {item.chapter && <div className="card__badge">Глава {item.chapter}</div>}
-      <img
-        src={item.images.jpg.image_url}
-        alt={item.title}
-        className="card__image"
-      />
-      <div className="card__info">
-        <p className="card__title">{item.title}</p>
-        {item.type && <p className="card__type">{item.type}</p>}
-      </div>
-    </div>
-  );
-
   return (
     <main className="app__main">
       <div className="banner-rect" />
 
-      <section className="grid-section">
-        <h2 className="section__title">Top Picks for You</h2>
-        <div className="grid grid--6">{topPicks.map(renderCard)}</div>
-      </section>
-
-      <section className="grid-section">
-        <h2 className="section__title">Most Popular</h2>
-        <div className="grid grid--6">{mostPopular.map(renderCard)}</div>
-      </section>
+      <HorizontalCarousel title="Top Picks for You" data={topPicks} />
+      <HorizontalCarousel title="Most Popular" data={mostPopular} />
 
       <News />
 
