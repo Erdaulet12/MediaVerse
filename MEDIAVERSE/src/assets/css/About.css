@@ -1,0 +1,67 @@
+.about-container {
+    max-width: 800px;
+    margin: 6rem auto 2rem;
+    padding: 2rem;
+    background-color: #0f172a;
+    color: #f9fafb;
+    border-radius: 1rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #facc15;
+}
+
+.about-container p {
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    color: #d1d5db;
+}
+
+.about-signature {
+    margin-top: 2rem;
+    font-style: italic;
+    color: #9ca3af;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 1.5rem;
+        margin: 5rem 1rem 2rem;
+    }
+
+    .about-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .about-container p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-container {
+        padding: 1rem;
+        margin: 5rem 0.75rem 1.5rem;
+    }
+
+    .about-container h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .about-container p {
+        font-size: 0.95rem;
+        text-align: justify;
+    }
+
+    .about-signature {
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}

@@ -24,7 +24,7 @@ const Popular = () => {
           <div className="popular-container">
             <div className="popular-grid">
               <div className="popular-section-header">
-                <h2 className="popular-title">Popular</h2>
+                <h1 className="popular-title">Popular</h1>
                 <div className="filters-with-icon">
                   <img src={MenuIcon} alt="Menu" className="icon" />
                   <span>Popular</span>

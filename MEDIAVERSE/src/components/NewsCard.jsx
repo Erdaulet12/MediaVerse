@@ -9,7 +9,7 @@ export default function NewsCard({ title, url, summary, date }) {
       </div>
       <div className="footer">
         <a href={url} target="_blank" rel="noopener noreferrer">
-          Читать на ANN
+          Read on ANN
         </a>
         <small>{new Date(date).toLocaleString()}</small>
       </div>

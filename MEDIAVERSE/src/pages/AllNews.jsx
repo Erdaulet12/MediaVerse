@@ -17,14 +17,14 @@ export default function AllNews() {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Загрузка новостей…</p>;
+  if (loading) return <p>Loading</p>;
 
   return (
     <div style={{ padding: "4rem 2rem 2rem" }}>
       <h1
         style={{ color: "#e0e0e0", marginBottom: "1.5rem", marginTop: "2rem" }}
       >
-        Новости Anime
+        Anime News
       </h1>
       {items.map((it, i) => (
         <NewsCard

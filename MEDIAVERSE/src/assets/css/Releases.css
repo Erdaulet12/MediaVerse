@@ -104,7 +104,6 @@
     font-weight: 500;
 }
 
-/* ---------- Ноутбуки и маленькие десктопы ---------- */
 @media (max-width: 1440px) {
     .releases-title {
         font-size: 1.85rem;
@@ -115,7 +114,6 @@
     }
 }
 
-/* ---------- Планшеты ---------- */
 @media (max-width: 1024px) {
     .releases-title {
         font-size: 1.75rem;
@@ -130,7 +128,6 @@
     }
 }
 
-/* ---------- Маленькие планшеты и большие телефоны ---------- */
 @media (max-width: 768px) {
     .releases-title {
         font-size: 1.5rem;
@@ -149,7 +146,6 @@
     }
 }
 
-/* ---------- Смартфоны ---------- */
 @media (max-width: 480px) {
     .releases-container {
         padding-left: 0.5rem;

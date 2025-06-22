@@ -49,7 +49,8 @@
   font-size: 0.875rem;
 }
 
-.alphabet-letter {
+.alphabet-letter,
+.clear-letter {
   padding: 0.3rem 0.6rem;
   background: #111;
   border-radius: 4px;
@@ -57,7 +58,8 @@
   transition: background 0.2s;
 }
 
-.alphabet-letter:hover {
+.alphabet-letter:hover,
+.clear-letter:hover {
   background: #222;
 }
 
@@ -165,9 +167,61 @@
   border-radius: 4px;
 }
 
-.clear-letter {
-  padding: 0.3rem 0.6rem;
-  background: #111;
-  border-radius: 4px;
-  cursor: pointer;
+/* === Адаптивность === */
+@media (max-width: 768px) {
+  .browse-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .browse-title {
+    font-size: 1.75rem;
+  }
+
+  .anime-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .anime-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .anime-info {
+    padding: 0.75rem;
+  }
+
+  .alphabet-bar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .browse-title {
+    font-size: 1.5rem;
+  }
+
+  .anime-title {
+    font-size: 1rem;
+  }
+
+  .anime-description {
+    font-size: 0.85rem;
+  }
+
+  .filter-panel {
+    width: 90%;
+    right: 5%;
+  }
+
+  .alphabet-bar {
+    font-size: 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .anime-card {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  }
 }
