@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import NewsCard from "../components/NewsCard"; // путь корректный
-import "../assets/css/News.css"; // подключаем стиль
+import NewsCard from "../components/NewsCard";
+import "../assets/css/News.css";
 
 export default function News() {
   const [news, setNews] = useState([]);
@@ -13,12 +13,11 @@ export default function News() {
     const fetchNews = async () => {
       try {
         const res = await fetch(`${BASE}/rss?feed=anime`);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) throw new Error();
         const data = await res.json();
         const list = Array.isArray(data) ? data : [data];
         setNews(list.slice(0, 4));
-      } catch (err) {
-        console.error("RSS Fetch error:", err);
+      } catch {
         setError("Unable to fetch news. Please try again later.");
       } finally {
         setLoading(false);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "../assets/css/Releases.css";
 import MenuIcon from "../assets/images/menu.svg";
 import FilterIcon from "../assets/images/filter.svg";
@@ -96,7 +96,6 @@ const Releases = () => {
         <div className="releases-section-header">
           <h2 className="releases-title">Upcoming Anime</h2>
           <div className="filters-with-icon">
-            {/* TODO: Добавить функционал к иконкам */}
             <img src={MenuIcon} alt="Menu" className="icon" />
             <span>All</span>
             <img src={FilterIcon} alt="Filters" className="icon" />

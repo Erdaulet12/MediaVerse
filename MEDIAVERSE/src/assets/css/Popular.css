@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
+  margin-top: 2rem;
 }
 
 .popular-card:hover {
@@ -28,7 +29,140 @@
 }
 
 .popular-card-title {
-  margin: 0;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.popular-section-header {
+  width: 100%;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filters-with-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filters-with-icon .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.filters-with-icon span {
+  font-size: 1.5rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.filters-with-icon img:nth-of-type(1) {
+  margin-right: 0.5rem;
+}
+
+.filters-with-icon span:nth-of-type(1) {
+  margin-right: 2rem;
+}
+
+.filters-with-icon img:nth-of-type(2) {
+  margin-right: 0.5rem;
+}
+
+.popular-title {
+  margin-left: 3rem;
+}
+
+.popular-subtitle {
+  font-size: 1.75rem;
+  color: #fff;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .popular-card {
+    width: 140px;
+  }
+
+  .popular-card-content {
+    font-size: 0.8rem;
+  }
+
+  .popular-card-title {
+    font-size: 0.95rem;
+  }
+
+  .popular-title {
+    margin-left: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .popular-subtitle {
+    margin-left: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .filters-with-icon span {
+    font-size: 1.25rem;
+  }
+
+  .filters-with-icon {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .popular-card {
+    width: 110px;
+  }
+
+  .popular-card-content {
+    font-size: 0.75rem;
+  }
+
+  .popular-card-title {
+    font-size: 0.85rem;
+  }
+
+  .popular-title {
+    margin-left: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .popular-subtitle {
+    margin-left: 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  .filters-with-icon {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 0;
+    gap: 0.25rem;
+  }
+
+  .filters-with-icon span {
+    font-size: 1rem;
+  }
+
+  .filters-with-icon .icon {
+    width: 20px;
+    height: 20px;
+  }
 }

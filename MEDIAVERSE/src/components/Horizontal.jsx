@@ -1,11 +1,20 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HorizontalCarousel = ({ title, data }) => {
   const scrollRef = useRef();
+  const navigate = useNavigate();
 
   const scroll = (offset) => {
     scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
   };
+
+  const uniqueData = Array.isArray(data)
+    ? data.filter(
+        (item, index, self) =>
+          self.findIndex((el) => el.mal_id === item.mal_id) === index
+      )
+    : [];
 
   return (
     <section className="carousel-container">
@@ -16,8 +25,13 @@ const HorizontalCarousel = ({ title, data }) => {
       </button>
 
       <div className="grid--scrollable" ref={scrollRef}>
-        {data.map((item) => (
-          <div className="card" key={item.mal_id}>
+        {uniqueData.map((item) => (
+          <div
+            className="card"
+            key={item.mal_id}
+            onClick={() => navigate(`/anime/${item.mal_id}/watch`)}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={item.images.jpg.image_url}
               alt={item.title}

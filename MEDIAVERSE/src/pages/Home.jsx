@@ -23,17 +23,33 @@ const Home = () => {
       return res.json();
     };
 
+    const removeDuplicates = (list) => {
+      const seen = new Set();
+      return list.filter((anime) => {
+        if (seen.has(anime.mal_id)) return false;
+        seen.add(anime.mal_id);
+        return true;
+      });
+    };
+
+    const hasEpisodes = (anime) => {
+      return typeof anime.episodes === "number" ? anime.episodes > 0 : true;
+    };
+
     const fetchData = async () => {
       setLoading(true);
       setError(null);
       try {
         const seasonJson = await fetchWithRetry("/v4/seasons/now?limit=20");
-        setTopPicks(seasonJson.data || []);
-
         const popularJson = await fetchWithRetry(
           "/v4/top/anime?filter=bypopularity&limit=20"
         );
-        setMostPopular(popularJson.data || []);
+
+        const seasonList = seasonJson.data.filter(hasEpisodes);
+        const popularList = popularJson.data.filter(hasEpisodes);
+
+        setTopPicks(removeDuplicates(seasonList));
+        setMostPopular(removeDuplicates(popularList));
       } catch (err) {
         console.error(err);
         setError(
@@ -55,7 +71,6 @@ const Home = () => {
   return (
     <main className="app__main">
       <div className="banner-rect" />
-
       <HorizontalCarousel title="Top Picks for You" data={topPicks} />
       <HorizontalCarousel title="Most Popular" data={mostPopular} />
 
