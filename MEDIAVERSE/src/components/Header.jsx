@@ -1,7 +1,10 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import Bookmark from "../assets/images/Bookmark.svg";
 import Logo from "../assets/images/Logo.svg";
+import Avatar from "../assets/images/Avatar.svg";
 import Avatar from "../assets/images/Avatar.svg";
 import "../assets/css/Header.css";
 
@@ -105,6 +108,25 @@ const Header = () => {
         </ul>
       </nav>
 
+      <div className="nav-right">
+        <img src={Bookmark} alt="Bookmarks" className="bookmark" />
+
+        {isLoggedIn ? (
+          <>
+            <img src={Avatar} alt="User Avatar" className="avatar" />
+            <button className="logout-button" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <button className="login-button" onClick={() => navigate("/auth")}>
+            Login
+          </button>
+        )}
+      </div>
+    </header>
+  );
+};
       <div className="nav-right">
         <img src={Bookmark} alt="Bookmarks" className="bookmark" />
 

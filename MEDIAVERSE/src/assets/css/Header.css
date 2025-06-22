@@ -1,3 +1,4 @@
+/* Header Layout */
 .app__header {
     background: #202020;
     padding: 1rem 2rem;
@@ -62,6 +63,7 @@
     color: #00adee;
 }
 
+/* Dropdown */
 .dropdown-wrapper {
     position: relative;
 }
@@ -84,6 +86,7 @@
     animation: dropdownFade 0.3s ease forwards;
 }
 
+/* Animate dropdown */
 @keyframes dropdownFade {
     to {
         opacity: 1;
@@ -91,6 +94,7 @@
     }
 }
 
+/* Genre Section */
 .dropdown-divider {
     margin: 0.75rem 0 0.5rem;
     font-size: 1rem;
@@ -123,6 +127,7 @@
     color: #facc15;
 }
 
+/* Right Section */
 .nav-right {
     display: flex;
     gap: 1rem;
@@ -135,6 +140,7 @@
     width: 32px;
 }
 
+/* Auth Buttons */
 .login-button {
     background-color: #3b82f6;
     color: white;
@@ -165,6 +171,7 @@
     background-color: #dc2626;
 }
 
+/* Mobile */
 @media (max-width: 480px) {
     .dropdown-menu {
         left: 50%;
