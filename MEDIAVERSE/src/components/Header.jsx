@@ -23,7 +23,7 @@ const Header = () => {
 
   useEffect(() => {
     checkAuth();
-  }, [location]); // обновляем при смене маршрута
+  }, [location]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
