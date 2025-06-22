@@ -37,7 +37,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-section">
-          <h4>Legal</h4>
+          <h4>Terms & Policies</h4>
           <ul>
             <li>
               <a href="/terms">Terms of Service</a>
