@@ -54,7 +54,6 @@ app.get("/api/rss", async (req, res) => {
   }
 });
 
-// ✅ ВЫЗОВ СЕРВЕРА ДОЛЖЕН БЫТЬ ТУТ, СНАРУЖИ
 app.listen(PORT, () =>
   console.log(`✅ ANN proxy running on http://localhost:${PORT}`)
 );
