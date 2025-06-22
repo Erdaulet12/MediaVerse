@@ -12,7 +12,6 @@ import AllNews from "./pages/AllNews";
 import BrowseAll from "./pages/BrowseAll";
 import AnimeWatch from "./pages/AnimeWatch";
 import Auth from "./pages/Auth";
-import Register from "./pages/Register";
 import "./assets/css/App.css";
 
 const App = () => {
@@ -34,7 +33,6 @@ const App = () => {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/about" element={<About />} />
             <Route path="/auth" element={<Auth />} />
-            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
         <Footer />

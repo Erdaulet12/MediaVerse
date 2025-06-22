@@ -1,60 +1,124 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/Auth.css";
 
-export default function Auth() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Auth = () => {
   const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(true);
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [message, setMessage] = useState("");
+  const [users, setUsers] = useState([]);
 
-  const handleLogin = (e) => {
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    setUsers(storedUsers);
+  }, []);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    const { email, password, confirmPassword } = form;
 
-    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (!email || !password || (!isLogin && !confirmPassword)) {
+      setMessage("Please fill all fields");
+      return;
+    }
 
-    if (storedUser?.email === email && storedUser?.password === password) {
+    if (!isLogin) {
+      if (password !== confirmPassword) {
+        setMessage("Passwords do not match");
+        return;
+      }
+
+      const exists = users.find((user) => user.email === email);
+      if (exists) {
+        setMessage("User already exists");
+        return;
+      }
+
+      const newUsers = [...users, { email, password }];
+      setUsers(newUsers);
+      localStorage.setItem("users", JSON.stringify(newUsers));
+      setMessage("Account created! You can log in now");
+      setIsLogin(true);
+      return;
+    }
+
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    const user = storedUsers.find(
+      (u) => u.email === email && u.password === password
+    );
+    if (user) {
+      setMessage("Login successful!");
       localStorage.setItem("isAuthenticated", "true");
-      alert("Login successful!");
-      navigate("/");
+      localStorage.setItem("userEmail", email);
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } else {
-      alert("Invalid credentials.");
+      setMessage("Invalid email or password");
     }
   };
 
   return (
-    <div className="auth-page">
-      <main className="auth-content">
-        <div className="auth-container">
-          <h1>Sign In</h1>
-          <form className="auth-form" onSubmit={handleLogin}>
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-
-            <button type="submit" className="auth-button">
-              Login
+    <div className="auth-container">
+      <h1>{isLogin ? "Log in" : "Create account"}</h1>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          name="email"
+          placeholder="Email address"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={form.password}
+          onChange={handleChange}
+          required
+        />
+        {!isLogin && (
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            required
+          />
+        )}
+        <button type="submit">{isLogin ? "Log in" : "Register"}</button>
+      </form>
+      {message && <p className="auth-message">{message}</p>}
+      <div className="auth-links">
+        {isLogin ? (
+          <>
+            <a href="#">Forgot password?</a>
+            <span>|</span>
+            <button type="button" onClick={() => setIsLogin(false)}>
+              Create account
             </button>
-          </form>
-
-          <div className="auth-footer">
-            Don’t have an account? <a href="/register">Sign Up</a>
-          </div>
-        </div>
-      </main>
+          </>
+        ) : (
+          <>
+            <button type="button" onClick={() => setIsLogin(true)}>
+              Already have an account?
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
-}
+};
+
+export default Auth;
