@@ -8,18 +8,23 @@
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out both;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .about-container h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #facc15;
+    animation: fadeInUp 1s ease-out both;
 }
 
 .about-container p {
     margin-bottom: 1.25rem;
     font-size: 1.1rem;
     color: #d1d5db;
+    animation: fadeInUp 1.1s ease-out both;
 }
 
 .about-signature {
@@ -27,6 +32,14 @@
     font-style: italic;
     color: #9ca3af;
     text-align: right;
+    animation: fadeInUp 1.2s ease-out both;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 768px) {

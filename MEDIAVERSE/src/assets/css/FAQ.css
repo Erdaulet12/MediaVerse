@@ -1,13 +1,15 @@
 .faq-container {
     max-width: 900px;
-    margin: 4rem auto;
-    margin-top: 6rem;
+    margin: 6rem auto 4rem;
     padding: 2rem 1rem;
     font-family: Inter, sans-serif;
     color: #e2e8f0;
     background-color: #0f172a;
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out both;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .faq-container h1 {
@@ -15,10 +17,12 @@
     color: #facc15;
     margin-bottom: 2rem;
     text-align: center;
+    animation: fadeInUp 1s ease-out both;
 }
 
 .faq-item {
     margin-bottom: 1.5rem;
+    animation: fadeInUp 1.2s ease-out both;
 }
 
 .faq-item h2 {
@@ -31,6 +35,13 @@
     font-size: 1rem;
     line-height: 1.6;
     color: #cbd5e1;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 1024px) {

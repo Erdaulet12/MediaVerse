@@ -8,7 +8,6 @@
 }
 
 .news-card {
-    background: linear-gradient(to bottom, #1e3a8a, #1e1f4b);
     border-radius: 1rem;
     overflow: hidden;
     width: 220px;
@@ -17,6 +16,9 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.5s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s ease forwards;
 }
 
 .news-card:hover {
@@ -67,6 +69,53 @@
     font-size: 0.75rem;
     color: #ddd;
     text-align: right;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.news-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.news-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.news-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.news-card:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.news-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.news-card:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.news-card:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.news-card:nth-child(8) {
+    animation-delay: 0.45s;
+}
+
+.news-card:nth-child(9) {
+    animation-delay: 0.5s;
+}
+
+.news-card:nth-child(10) {
+    animation-delay: 0.55s;
 }
 
 @media (max-width: 768px) {

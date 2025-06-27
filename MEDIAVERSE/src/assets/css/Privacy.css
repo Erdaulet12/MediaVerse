@@ -1,13 +1,15 @@
 .privacy-container {
     max-width: 900px;
-    margin: 4rem auto;
-    margin-top: 6rem;
+    margin: 6rem auto 4rem;
     padding: 2rem 1rem;
     font-family: Inter, sans-serif;
     color: #e2e8f0;
     background-color: #0f172a;
     border-radius: 1rem;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: fadeInUp 0.8s ease-out both;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .privacy-container h1 {
@@ -15,6 +17,7 @@
     color: #facc15;
     margin-bottom: 1.5rem;
     text-align: center;
+    animation: fadeInUp 1s ease-out both;
 }
 
 .privacy-container h2 {
@@ -22,6 +25,7 @@
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: #f1f5f9;
+    animation: fadeInUp 1.2s ease-out both;
 }
 
 .privacy-container p {
@@ -29,11 +33,13 @@
     font-size: 1rem;
     margin-bottom: 1rem;
     color: #cbd5e1;
+    animation: fadeInUp 1.4s ease-out both;
 }
 
 .privacy-container ul {
     padding-left: 1.5rem;
     margin-bottom: 1.5rem;
+    animation: fadeInUp 1.5s ease-out both;
 }
 
 .privacy-container li {
@@ -44,10 +50,18 @@
 .privacy-container a {
     color: #38bdf8;
     text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
 .privacy-container a:hover {
     color: #0ea5e9;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 1024px) {

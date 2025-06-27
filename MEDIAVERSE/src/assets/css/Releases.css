@@ -25,7 +25,7 @@
 
 .releases-title {
     font-size: 2rem;
-    color: #fff;
+    color: #facc15;
     font-family: Inter, sans-serif;
     margin: 0;
 }
@@ -54,7 +54,7 @@
 
 .releases-subtitle {
     font-size: 1.25rem;
-    color: #fff;
+    color: #facc15;
     font-family: Inter, sans-serif;
     margin: 0 0 1rem 3.4rem;
 }
@@ -79,10 +79,15 @@
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s ease forwards;
 }
 
 .releases-card:hover {
     transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(250, 204, 21, 0.2);
 }
 
 .releases-card-content {
@@ -102,6 +107,85 @@
     margin: 0;
     font-size: 1rem;
     font-weight: 500;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.releases-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.releases-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.releases-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.releases-card:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.releases-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.releases-card:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.releases-card:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.releases-card:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.releases-card:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+.releases-card:nth-child(10) {
+    animation-delay: 0.5s;
+}
+
+.releases-card:nth-child(11) {
+    animation-delay: 0.55s;
+}
+
+.releases-card:nth-child(12) {
+    animation-delay: 0.6s;
+}
+
+.releases-card:nth-child(13) {
+    animation-delay: 0.65s;
+}
+
+.releases-card:nth-child(14) {
+    animation-delay: 0.7s;
+}
+
+.releases-card:nth-child(15) {
+    animation-delay: 0.75s;
+}
+
+.releases-card:nth-child(16) {
+    animation-delay: 0.8s;
+}
+
+.releases-card:nth-child(17) {
+    animation-delay: 0.85s;
+}
+
+.releases-card:nth-child(18) {
+    animation-delay: 0.9s;
 }
 
 @media (max-width: 1440px) {
