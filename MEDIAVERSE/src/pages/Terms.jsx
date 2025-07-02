@@ -43,7 +43,7 @@ export default function Terms() {
         <h2>5. Contact</h2>
         <p>
           For questions or concerns about these Terms of Service, please contact
-          us at contact@example.com.
+          us at support@mediaverse.com
         </p>
       </div>
     </div>
