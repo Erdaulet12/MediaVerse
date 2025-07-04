@@ -1,3 +1,10 @@
+ЗАПУСКАТЬ ЧЕРЕЗ КОМАНДУ npm run start:all
+
+и скачать зависимости в папке server
+
+КОСТЫЛЬ
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
